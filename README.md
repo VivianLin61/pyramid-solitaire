@@ -4,8 +4,11 @@ Pyramid Solitaire game written in JavaScript.
 # how to play
 The objective of the game is the get rid of all the card in the Pyramid. In order to get rid of cards you must find two cards whose sum is 13. 
 
+### Features
+
+- ace is 1
 # ranks
-ace is 1
+- ace is 1
 jack is 11
 queen is 12 
 king is 13
