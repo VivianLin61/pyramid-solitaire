@@ -2,7 +2,7 @@
 <!--Vivian Lin-->
 <html>
   <head>
-    <title>Pyramid</title>
+    <title>Pyramid Solitaire</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     
     <script> 
@@ -57,6 +57,12 @@
         pyramidOut.appendChild(pLvl);
         pyramidLevels(i)
       }
+    }
+
+    function clearPyramid() {
+    	while(pyramidOut.firstChild) {
+    		pyramidOut.removeChild(pyramidOut.firstChild);
+    	}
     }
 
     function pyramidLevels(lvl)
@@ -169,6 +175,20 @@ function notBlocked(sLvl,sIdx)
     }
   }
 }
+
+function restart() {
+	 pDeck=[[],[],[],[],[],[],[]];
+    allCards=[];
+    othercardOut.src = "cardimgs/back-red.png";
+    tmpcardOut.src = "";
+
+   shuffleDeck(); 
+   buildData();
+   clearPyramid();
+   buildPyamid();
+   makeblockedCards();
+
+}
 function selectDeckCard(card,img)
 {
   if (img=="othercard")
@@ -238,13 +258,14 @@ function checkWinner()
   </script> 
   </head>
   <body onload="initialize();">
-  <h1> PYRAMID CARD GAME</h1>
+
   <div class="allcard">
     <span id="pyramid"> </span>
     <span id="display"> </span>
 <img  onclick="selectDeckCard(0,'othercard'); " src="cardimgs/back-red.png" id="othercard"/>
 <img  onclick="selectDeckCard(Deck.length-1,'tmpcard'); " src="" id="tmpcard" />
 <button onclick="displayNext();">DRAW CARD</button>
+<button onclick="restart();">RESTART</button>
 <div>
 
   </body>
